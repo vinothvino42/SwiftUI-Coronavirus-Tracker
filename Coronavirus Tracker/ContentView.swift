@@ -10,7 +10,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            ZStack {
+                Color.red.edgesIgnoringSafeArea(.all)
+                List {
+                    ForEach(1...5, id: \.self) { list in
+                        ListItemView()
+                    }
+                }
+                .navigationBarTitle("Coronavirus Tracker")
+            }
+        }
     }
 }
 
