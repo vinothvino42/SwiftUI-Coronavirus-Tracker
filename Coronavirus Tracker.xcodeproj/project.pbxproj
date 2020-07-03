@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D15811A324AEC51D00B07C71 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15811A224AEC51D00B07C71 /* Endpoint.swift */; };
+		D15811A524AEC6E200B07C71 /* EndpointCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15811A424AEC6E200B07C71 /* EndpointCardData.swift */; };
 		D163E11524AD030500297AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D163E11424AD030500297AAF /* AppDelegate.swift */; };
 		D163E11724AD030500297AAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D163E11624AD030500297AAF /* SceneDelegate.swift */; };
 		D163E11924AD030600297AAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D163E11824AD030600297AAF /* ContentView.swift */; };
 		D163E11B24AD032300297AAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D163E11A24AD032300297AAF /* Assets.xcassets */; };
 		D163E11E24AD032300297AAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D163E11D24AD032300297AAF /* Preview Assets.xcassets */; };
 		D163E12124AD032300297AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D163E11F24AD032300297AAF /* LaunchScreen.storyboard */; };
-		D166568D24AD7579009DC2BD /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166568C24AD7579009DC2BD /* ListItemView.swift */; };
+		D166568D24AD7579009DC2BD /* EndpointCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166568C24AD7579009DC2BD /* EndpointCardView.swift */; };
+		D166568F24AD83D9009DC2BD /* ListUpdatedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166568E24AD83D8009DC2BD /* ListUpdatedTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D15811A224AEC51D00B07C71 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		D15811A424AEC6E200B07C71 /* EndpointCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointCardData.swift; sourceTree = "<group>"; };
 		D163E11124AD030500297AAF /* Coronavirus Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coronavirus Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D163E11424AD030500297AAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D163E11624AD030500297AAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,7 +30,8 @@
 		D163E11D24AD032300297AAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D163E12024AD032300297AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D163E12224AD032300297AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D166568C24AD7579009DC2BD /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		D166568C24AD7579009DC2BD /* EndpointCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointCardView.swift; sourceTree = "<group>"; };
+		D166568E24AD83D8009DC2BD /* ListUpdatedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUpdatedTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D15811A124AEC4E600B07C71 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				D15811A224AEC51D00B07C71 /* Endpoint.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		D163E10824AD030400297AAF = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +72,7 @@
 		D163E11324AD030500297AAF /* Coronavirus Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				D15811A124AEC4E600B07C71 /* Enums */,
 				D166568B24AD7237009DC2BD /* View Models */,
 				D166568A24AD722F009DC2BD /* Models */,
 				D166568924AD7222009DC2BD /* Views */,
@@ -83,7 +98,8 @@
 		D166568924AD7222009DC2BD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D166568C24AD7579009DC2BD /* ListItemView.swift */,
+				D166568C24AD7579009DC2BD /* EndpointCardView.swift */,
+				D166568E24AD83D8009DC2BD /* ListUpdatedTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,6 +107,7 @@
 		D166568A24AD722F009DC2BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D15811A424AEC6E200B07C71 /* EndpointCardData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,9 +191,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D163E11524AD030500297AAF /* AppDelegate.swift in Sources */,
+				D15811A524AEC6E200B07C71 /* EndpointCardData.swift in Sources */,
 				D163E11724AD030500297AAF /* SceneDelegate.swift in Sources */,
+				D166568F24AD83D9009DC2BD /* ListUpdatedTextView.swift in Sources */,
 				D163E11924AD030600297AAF /* ContentView.swift in Sources */,
-				D166568D24AD7579009DC2BD /* ListItemView.swift in Sources */,
+				D15811A324AEC51D00B07C71 /* Endpoint.swift in Sources */,
+				D166568D24AD7579009DC2BD /* EndpointCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

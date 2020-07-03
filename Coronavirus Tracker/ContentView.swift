@@ -11,16 +11,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            ZStack {
-                Color.red.edgesIgnoringSafeArea(.all)
-                List {
-                    ForEach(1...5, id: \.self) { list in
-                        ListItemView()
-                    }
+            List {
+                ListUpdatedTextView()
+                ForEach(1...5, id: \.self) { list in
+                    EndpointCardView()
                 }
-                .navigationBarTitle("Coronavirus Tracker")
             }
-        }
+            .navigationBarTitle(Text("Coronavirus Tracker"))
+        }.foregroundColor(Color.yellow)
     }
 }
 

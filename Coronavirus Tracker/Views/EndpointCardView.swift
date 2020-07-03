@@ -8,18 +8,17 @@
 
 import SwiftUI
 
-struct ListItemView: View {
+struct EndpointCardView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Cases")
                 .font(.title)
             HStack {
                 Image(systemName: "airplayaudio")
-                    .font(.largeTitle)
                 Spacer()
                 Text("10,690,566")
-                    .font(.largeTitle)
             }
+            .font(.largeTitle)
         }
         .padding()
         .foregroundColor(Color.yellow)
