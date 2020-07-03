@@ -9,29 +9,56 @@
 import SwiftUI
 
 struct EndpointCardView: View {
+    var endpoint: Endpoint
+    var value: Int
+        
+    static let cardsData = [
+        Endpoint.cases: EndpointCardData(title: "Cases", image: "count", color: Color("cases")),
+        Endpoint.casesSuspected: EndpointCardData(title: "Suspected cases", image: "suspect", color: Color("suspected")),
+        Endpoint.cases: EndpointCardData(title: "Confirmed cases", image: "fever", color: Color("confirmed")),
+        Endpoint.cases: EndpointCardData(title: "Deaths", image: "death", color: Color("death")),
+        Endpoint.cases: EndpointCardData(title: "Recovered", image: "patient", color: Color("recovered")),
+    ]
+    
+    var title: String {
+        return EndpointCardView.cardsData[endpoint]?.title ?? ""
+    }
+    
+    var image: String {
+        return EndpointCardView.cardsData[endpoint]?.image ?? ""
+    }
+    
+    var cases: String {
+        return "\(value)"
+    }
+    
+    var color: Color {
+        return EndpointCardView.cardsData[endpoint]?.color ?? Color("cases")
+    }
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Cases")
+            Text(title)
                 .font(.title)
             HStack {
-                Image(systemName: "airplayaudio")
+                Image(systemName: image)
                 Spacer()
-                Text("10,690,566")
+                Text(cases)
             }
             .font(.largeTitle)
         }
         .padding()
-        .foregroundColor(Color.yellow)
+        .foregroundColor(color)
     }
 }
 
-struct ListItemView_Previews: PreviewProvider {
+struct EndpointCardView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ListItemView()
-                .environment(\.colorScheme, .dark)
-            ListItemView()
-                .environment(\.colorScheme, .light)
+//            EndpointCardView()
+//                .environment(\.colorScheme, .dark)
+//            EndpointCardView()
+//                .environment(\.colorScheme, .light)
         }
     }
 }

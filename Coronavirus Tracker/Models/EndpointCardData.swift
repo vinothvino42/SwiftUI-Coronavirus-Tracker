@@ -10,6 +10,6 @@ import SwiftUI
 
 struct EndpointCardData {
     var title: String
-    var assetName: String
+    var image: String
     var color: Color
 }

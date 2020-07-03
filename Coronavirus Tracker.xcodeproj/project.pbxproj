@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		D15811A324AEC51D00B07C71 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15811A224AEC51D00B07C71 /* Endpoint.swift */; };
 		D15811A524AEC6E200B07C71 /* EndpointCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15811A424AEC6E200B07C71 /* EndpointCardData.swift */; };
+		D15811A724AECB9400B07C71 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D15811A624AECB9400B07C71 /* Colors.xcassets */; };
+		D15811AA24AED0D400B07C71 /* CoronaApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15811A924AED0D400B07C71 /* CoronaApiError.swift */; };
+		D15811AC24AED13200B07C71 /* CoronaApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15811AB24AED13200B07C71 /* CoronaApiService.swift */; };
+		D15811AE24AED1E300B07C71 /* CoronaEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15811AD24AED1E300B07C71 /* CoronaEndpoint.swift */; };
 		D163E11524AD030500297AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D163E11424AD030500297AAF /* AppDelegate.swift */; };
 		D163E11724AD030500297AAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D163E11624AD030500297AAF /* SceneDelegate.swift */; };
 		D163E11924AD030600297AAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D163E11824AD030600297AAF /* ContentView.swift */; };
@@ -22,6 +26,10 @@
 /* Begin PBXFileReference section */
 		D15811A224AEC51D00B07C71 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		D15811A424AEC6E200B07C71 /* EndpointCardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointCardData.swift; sourceTree = "<group>"; };
+		D15811A624AECB9400B07C71 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		D15811A924AED0D400B07C71 /* CoronaApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaApiError.swift; sourceTree = "<group>"; };
+		D15811AB24AED13200B07C71 /* CoronaApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaApiService.swift; sourceTree = "<group>"; };
+		D15811AD24AED1E300B07C71 /* CoronaEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaEndpoint.swift; sourceTree = "<group>"; };
 		D163E11124AD030500297AAF /* Coronavirus Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coronavirus Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D163E11424AD030500297AAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D163E11624AD030500297AAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,8 +57,18 @@
 			isa = PBXGroup;
 			children = (
 				D15811A224AEC51D00B07C71 /* Endpoint.swift */,
+				D15811A924AED0D400B07C71 /* CoronaApiError.swift */,
+				D15811AD24AED1E300B07C71 /* CoronaEndpoint.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		D15811A824AED09800B07C71 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D15811AB24AED13200B07C71 /* CoronaApiService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D163E10824AD030400297AAF = {
@@ -72,6 +90,7 @@
 		D163E11324AD030500297AAF /* Coronavirus Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				D15811A824AED09800B07C71 /* Services */,
 				D15811A124AEC4E600B07C71 /* Enums */,
 				D166568B24AD7237009DC2BD /* View Models */,
 				D166568A24AD722F009DC2BD /* Models */,
@@ -83,6 +102,7 @@
 				D163E11F24AD032300297AAF /* LaunchScreen.storyboard */,
 				D163E12224AD032300297AAF /* Info.plist */,
 				D163E11C24AD032300297AAF /* Preview Content */,
+				D15811A624AECB9400B07C71 /* Colors.xcassets */,
 			);
 			path = "Coronavirus Tracker";
 			sourceTree = "<group>";
@@ -178,6 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D163E12124AD032300297AAF /* LaunchScreen.storyboard in Resources */,
+				D15811A724AECB9400B07C71 /* Colors.xcassets in Resources */,
 				D163E11E24AD032300297AAF /* Preview Assets.xcassets in Resources */,
 				D163E11B24AD032300297AAF /* Assets.xcassets in Resources */,
 			);
@@ -195,6 +216,9 @@
 				D163E11724AD030500297AAF /* SceneDelegate.swift in Sources */,
 				D166568F24AD83D9009DC2BD /* ListUpdatedTextView.swift in Sources */,
 				D163E11924AD030600297AAF /* ContentView.swift in Sources */,
+				D15811AC24AED13200B07C71 /* CoronaApiService.swift in Sources */,
+				D15811AE24AED1E300B07C71 /* CoronaEndpoint.swift in Sources */,
+				D15811AA24AED0D400B07C71 /* CoronaApiError.swift in Sources */,
 				D15811A324AEC51D00B07C71 /* Endpoint.swift in Sources */,
 				D166568D24AD7579009DC2BD /* EndpointCardView.swift in Sources */,
 			);
