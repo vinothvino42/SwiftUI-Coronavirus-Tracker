@@ -14,7 +14,8 @@ struct ContentView: View {
             List {
                 ListUpdatedTextView()
                 ForEach(1...5, id: \.self) { list in
-                    EndpointCardView(endpoint: <#Endpoint#>, value: <#Int#>)
+                    Text("")
+//                    EndpointCardView(endpoint: <#Endpoint#>, value: <#Int#>)
                 }
             }
             .navigationBarTitle(Text("Coronavirus Tracker"))

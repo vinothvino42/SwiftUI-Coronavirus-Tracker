@@ -25,6 +25,7 @@
 		D17A2B3924B015F900EF0B26 /* CoronaLocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A2B3824B015F900EF0B26 /* CoronaLocalDataRepository.swift */; };
 		D17A2B3B24B0165D00EF0B26 /* EndpointsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A2B3A24B0165D00EF0B26 /* EndpointsData.swift */; };
 		D17A2B3D24B016F100EF0B26 /* EndpointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A2B3C24B016F100EF0B26 /* EndpointData.swift */; };
+		D17A2B3F24B01BE700EF0B26 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A2B3E24B01BE700EF0B26 /* Resource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D17A2B3824B015F900EF0B26 /* CoronaLocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaLocalDataRepository.swift; sourceTree = "<group>"; };
 		D17A2B3A24B0165D00EF0B26 /* EndpointsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointsData.swift; sourceTree = "<group>"; };
 		D17A2B3C24B016F100EF0B26 /* EndpointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointData.swift; sourceTree = "<group>"; };
+		D17A2B3E24B01BE700EF0B26 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				D15811A424AEC6E200B07C71 /* EndpointCardData.swift */,
 				D17A2B3A24B0165D00EF0B26 /* EndpointsData.swift */,
 				D17A2B3C24B016F100EF0B26 /* EndpointData.swift */,
+				D17A2B3E24B01BE700EF0B26 /* Resource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				D17A2B3B24B0165D00EF0B26 /* EndpointsData.swift in Sources */,
 				D163E11524AD030500297AAF /* AppDelegate.swift in Sources */,
 				D17A2B3D24B016F100EF0B26 /* EndpointData.swift in Sources */,
+				D17A2B3F24B01BE700EF0B26 /* Resource.swift in Sources */,
 				D17A2B3924B015F900EF0B26 /* CoronaLocalDataRepository.swift in Sources */,
 				D15811A524AEC6E200B07C71 /* EndpointCardData.swift in Sources */,
 				D163E11724AD030500297AAF /* SceneDelegate.swift in Sources */,

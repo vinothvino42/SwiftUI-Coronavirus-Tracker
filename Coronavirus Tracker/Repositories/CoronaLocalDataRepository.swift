@@ -8,6 +8,17 @@
 
 import Foundation
 
-protocol CoronaLocalDataRepository {
+protocol CoronaLocalDataRepositoryDataSource {
     func getData() -> EndpointsData
+    func setData(endpointsData: EndpointsData)
+}
+
+struct CoronaLocalDataRepository: CoronaLocalDataRepositoryDataSource {
+    func getData() -> EndpointsData {
+        
+    }
+    
+    func setData(endpointsData: EndpointsData) {
+        
+    }
 }

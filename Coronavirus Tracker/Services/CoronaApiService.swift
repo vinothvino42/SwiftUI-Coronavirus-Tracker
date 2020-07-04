@@ -8,7 +8,18 @@
 
 import Foundation
 
-class CoronaApiService {
+protocol ApiServiceDelegate {
+    func executeHTTPRequest<T>(withResource resource: Resource<T>, completionHandler: @escaping (Result<T, CoronaApiError>) -> Void)
+}
+
+protocol CoronaApiServiceDataSource {
+    func getAccessToken() -> String
+    func getEndpointData() -> EndpointData
+}
+
+protocol CoronaDataSource: ApiServiceDelegate, CoronaApiServiceDataSource {}
+
+final class CoronaApiService: CoronaDataSource {
     static let shared = CoronaApiService()
     
     private let baseUrl = "https://apigw.nubentos.com/t/nubentos.com/ncovapi/1.0.0"
@@ -21,5 +32,37 @@ class CoronaApiService {
     
     private init() {}
     
+    func executeHTTPRequest<T>(withResource resource: Resource<T>, completionHandler: @escaping (Result<T, CoronaApiError>) -> Void) {
+        urlSession.dataTask(with: resource.url) { (data, response, error) in
+            if let error = error {
+                completionHandler(.failure(.error(error as NSError)))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 else {
+                completionHandler(.failure(.badHttpResponse))
+                return
+            }
+            
+            guard let data = data else {
+                completionHandler(.failure(.noData))
+            }
+            
+            do {
+                let baseModel = try self.jsonDecoder.decode(T.self, from: data)
+                completionHandler(.success(baseModel))
+            } catch let error as NSError {
+                print(error.localizedDescription)
+                completionHandler(.failure(.invalidSerialization))
+            }
+        }.resume()
+    }
     
+    func getAccessToken() -> String {
+        
+    }
+    
+    func getEndpointData() -> EndpointData {
+        
+    }
 }

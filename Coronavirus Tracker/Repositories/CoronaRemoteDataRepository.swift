@@ -8,6 +8,32 @@
 
 import Foundation
 
-protocol CoronaRemoteDataRepositoryBase {
-//    func
+protocol CoronaRemoteDataRepositoryDataSource{
+    var getAllEndpointsCachedData: EndpointsData { get set }
+    func getEndpointsData(endpoint: Endpoint) -> EndpointData
+    func getDataRefreshToken() -> (() -> Void)
+    func getAllEndpointsData() -> EndpointsData
+}
+
+struct CoronaRemoteDataRepository: CoronaRemoteDataRepositoryDataSource {
+    var getAllEndpointsCachedData: EndpointsData {
+        get {
+            
+        }
+        set {
+            
+        }
+    }
+    
+    func getEndpointsData(endpoint: Endpoint) -> EndpointData {
+        <#code#>
+    }
+    
+    func getDataRefreshToken() -> (() -> Void) {
+        <#code#>
+    }
+    
+    func getAllEndpointsData() -> EndpointsData {
+        <#code#>
+    }
 }
