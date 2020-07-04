@@ -52,13 +52,13 @@ struct EndpointCardView: View {
     }
 }
 
-struct EndpointCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
+//struct EndpointCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Group {
 //            EndpointCardView()
 //                .environment(\.colorScheme, .dark)
 //            EndpointCardView()
 //                .environment(\.colorScheme, .light)
-        }
-    }
-}
+//        }
+//    }
+//}

@@ -12,4 +12,14 @@ class CoronaApiService {
     static let shared = CoronaApiService()
     
     private let baseUrl = "https://apigw.nubentos.com/t/nubentos.com/ncovapi/1.0.0"
+    private let urlSession = URLSession.shared
+    private let jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .millisecondsSince1970
+        return decoder
+    }()
+    
+    private init() {}
+    
+    
 }
