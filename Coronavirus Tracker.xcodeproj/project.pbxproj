@@ -21,6 +21,7 @@
 		D163E12124AD032300297AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D163E11F24AD032300297AAF /* LaunchScreen.storyboard */; };
 		D166568D24AD7579009DC2BD /* EndpointCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166568C24AD7579009DC2BD /* EndpointCardView.swift */; };
 		D166568F24AD83D9009DC2BD /* ListUpdatedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166568E24AD83D8009DC2BD /* ListUpdatedTextView.swift */; };
+		D166D8BA24B1726C000F0306 /* Date+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D166D8B924B1726C000F0306 /* Date+Conversion.swift */; };
 		D17A2B3724B0157800EF0B26 /* CoronaRemoteDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A2B3624B0157800EF0B26 /* CoronaRemoteDataRepository.swift */; };
 		D17A2B3924B015F900EF0B26 /* CoronaLocalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A2B3824B015F900EF0B26 /* CoronaLocalDataRepository.swift */; };
 		D17A2B3B24B0165D00EF0B26 /* EndpointsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17A2B3A24B0165D00EF0B26 /* EndpointsData.swift */; };
@@ -45,6 +46,7 @@
 		D163E12224AD032300297AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D166568C24AD7579009DC2BD /* EndpointCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointCardView.swift; sourceTree = "<group>"; };
 		D166568E24AD83D8009DC2BD /* ListUpdatedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUpdatedTextView.swift; sourceTree = "<group>"; };
+		D166D8B924B1726C000F0306 /* Date+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Conversion.swift"; sourceTree = "<group>"; };
 		D17A2B3624B0157800EF0B26 /* CoronaRemoteDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaRemoteDataRepository.swift; sourceTree = "<group>"; };
 		D17A2B3824B015F900EF0B26 /* CoronaLocalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoronaLocalDataRepository.swift; sourceTree = "<group>"; };
 		D17A2B3A24B0165D00EF0B26 /* EndpointsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointsData.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		D163E11324AD030500297AAF /* Coronavirus Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				D17A2B4024B030B800EF0B26 /* Extension */,
 				D17A2B3524B0155E00EF0B26 /* Repositories */,
 				D15811A824AED09800B07C71 /* Services */,
 				D15811A124AEC4E600B07C71 /* Enums */,
@@ -160,6 +163,14 @@
 				D17A2B3824B015F900EF0B26 /* CoronaLocalDataRepository.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		D17A2B4024B030B800EF0B26 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D166D8B924B1726C000F0306 /* Date+Conversion.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +260,7 @@
 				D17A2B3724B0157800EF0B26 /* CoronaRemoteDataRepository.swift in Sources */,
 				D15811A324AEC51D00B07C71 /* Endpoint.swift in Sources */,
 				D166568D24AD7579009DC2BD /* EndpointCardView.swift in Sources */,
+				D166D8BA24B1726C000F0306 /* Date+Conversion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

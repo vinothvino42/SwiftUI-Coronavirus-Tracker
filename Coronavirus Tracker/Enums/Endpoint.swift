@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Endpoint {
+enum Endpoint: String, CaseIterable {
     case cases
     case casesSuspected
     case casesConfirmed
