@@ -10,8 +10,7 @@ import Foundation
 
 enum Endpoint: String, CaseIterable {
     case cases
-    case casesSuspected
-    case casesConfirmed
+    case active
     case deaths
     case recovered
 }

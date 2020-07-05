@@ -14,6 +14,7 @@ enum CoronaApiError: Error {
     case invalidSerialization
     case badHttpResponse
     case noData
+    case accessTokenExpires
     case error(NSError)
 }
 

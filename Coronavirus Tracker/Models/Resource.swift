@@ -12,7 +12,7 @@ typealias HTTPMethod = String
 typealias Parameters = [String: Any]
 
 struct Resource<T: Decodable> {
-    let url: URL
+    let url: String
     var httpMethod: HTTPMethod = "GET"
     var params: Parameters? = nil
 }
@@ -22,6 +22,6 @@ extension Resource {
         if url == "" {
             throw CoronaApiError.emptyUrl
         }
-        self.url = URL(string: url)!
+        self.url = url
     }
 }

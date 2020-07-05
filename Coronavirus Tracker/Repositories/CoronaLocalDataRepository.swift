@@ -30,7 +30,7 @@ struct CoronaLocalDataRepository: CoronaLocalDataRepositoryDataSource {
             let value = userDefaults.integer(forKey: Self.endpointValueKey(endpoint: endpoint))
             let dateStr = userDefaults.string(forKey: Self.endpointDateKey(endpoint: endpoint))
             if (dateStr != nil) {
-                let date = Date()
+                let date = Date.convertStringToDate(date: dateStr!)
                 values[endpoint] = EndpointData(value: value, date: date)
             }
         }

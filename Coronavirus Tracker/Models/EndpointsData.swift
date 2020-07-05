@@ -15,12 +15,8 @@ struct EndpointsData {
         return values[Endpoint.cases]!
     }
     
-    var casesSuspected: EndpointData {
-        return values[Endpoint.casesSuspected]!
-    }
-    
-    var casesConfirmed: EndpointData {
-        return values[Endpoint.casesConfirmed]!
+    var active: EndpointData {
+        return values[Endpoint.active]!
     }
     
     var deaths: EndpointData {

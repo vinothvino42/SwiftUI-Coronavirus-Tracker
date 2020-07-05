@@ -9,23 +9,25 @@
 import Foundation
 
 protocol CoronaRemoteDataRepositoryDataSource{
-    var getAllEndpointsCachedData: EndpointsData { get set }
+    var getAllEndpointsCachedData: EndpointsData { get }
     func getEndpointsData(endpoint: Endpoint) -> EndpointData
     func getDataRefreshToken() -> (() -> Void)
     func getAllEndpointsData() -> EndpointsData
+    func getAllEndpointsValues() -> EndpointsData
 }
 
 struct CoronaRemoteDataRepository: CoronaRemoteDataRepositoryDataSource {
+    let coronaLocalDataRepository = CoronaLocalDataRepository()
+    
     var getAllEndpointsCachedData: EndpointsData {
-        get {
-            
-        }
-        set {
-            
-        }
+        return coronaLocalDataRepository.getData()
     }
     
     func getEndpointsData(endpoint: Endpoint) -> EndpointData {
+        <#code#>
+    }
+    
+    func getAllEndpointsData() -> EndpointsData {
         <#code#>
     }
     
@@ -33,7 +35,7 @@ struct CoronaRemoteDataRepository: CoronaRemoteDataRepositoryDataSource {
         <#code#>
     }
     
-    func getAllEndpointsData() -> EndpointsData {
+    func getAllEndpointsValues() -> EndpointsData {
         <#code#>
     }
 }
