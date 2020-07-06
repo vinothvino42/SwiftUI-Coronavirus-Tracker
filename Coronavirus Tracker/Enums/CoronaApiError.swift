@@ -24,7 +24,7 @@ extension CoronaApiError: LocalizedError {
         case .emptyUrl:
             return NSLocalizedString("Please create resource object with URL", comment: "")
         default:
-            break
+            return nil
         }
     }
 }

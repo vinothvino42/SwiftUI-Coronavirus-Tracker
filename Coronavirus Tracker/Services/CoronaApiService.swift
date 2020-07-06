@@ -51,6 +51,7 @@ final class CoronaApiService: CoronaDataSource {
             
             guard let data = data else {
                 completionHandler(.failure(.noData))
+                return
             }
             
             do {
