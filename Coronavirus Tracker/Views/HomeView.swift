@@ -7,24 +7,25 @@
 //
 
 import SwiftUI
+import Combine
 
-struct ContentView: View {
+struct HomeView: View {
+    @ObservedObject var homeViewModel = HomeViewModel()
+    
     var body: some View {
         NavigationView {
             List {
-                ListUpdatedTextView()
                 ForEach(0 ..< Endpoint.allCases.count) { index in
-                    Text("")
-                    EndpointCardView(endpoint: Endpoint.allCases[index], value: 1)
+                    EndpointCardView(endpoint: Endpoint.allCases[index], value: 52)
                 }
             }
             .navigationBarTitle(Text("Coronavirus Tracker"))
-        }.foregroundColor(Color.yellow)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }

@@ -13,11 +13,10 @@ struct EndpointCardView: View {
     var value: Int
         
     static let cardsData = [
-        Endpoint.cases: EndpointCardData(title: "Cases", image: "count", color: Color("cases")),
-        Endpoint.casesSuspected: EndpointCardData(title: "Suspected cases", image: "suspect", color: Color("suspected")),
-        Endpoint.cases: EndpointCardData(title: "Confirmed cases", image: "fever", color: Color("confirmed")),
-        Endpoint.cases: EndpointCardData(title: "Deaths", image: "death", color: Color("death")),
-        Endpoint.cases: EndpointCardData(title: "Recovered", image: "patient", color: Color("recovered")),
+        Endpoint.cases: EndpointCardData(title: "Cases", image: "cases", color: Color("cases")),
+        Endpoint.active: EndpointCardData(title: "Active", image: "active", color: Color("active")),
+        Endpoint.deaths: EndpointCardData(title: "Deaths", image: "death", color: Color("death")),
+        Endpoint.recovered: EndpointCardData(title: "Recovered", image: "recovered", color: Color("recovered")),
     ]
     
     var title: String {
@@ -41,7 +40,8 @@ struct EndpointCardView: View {
             Text(title)
                 .font(.title)
             HStack {
-                Image(systemName: image)
+                Image(image)
+                    .colorMultiply(color)
                 Spacer()
                 Text(cases)
             }
@@ -52,13 +52,3 @@ struct EndpointCardView: View {
     }
 }
 
-//struct EndpointCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Group {
-//            EndpointCardView()
-//                .environment(\.colorScheme, .dark)
-//            EndpointCardView()
-//                .environment(\.colorScheme, .light)
-//        }
-//    }
-//}

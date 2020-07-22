@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import Combine
 
 protocol ApiServiceDelegate {
-    func executeHTTPRequest<T>(withResource resource: Resource<T>, completionHandler: @escaping (Result<T, CoronaApiError>) -> Void)
+    func executeHTTPRequest<T>(withResource resource: Resource<T>) -> AnyPublisher<T, CoronaApiError>
 }
 
 protocol CoronaApiServiceDataSource {
-    func getAccessToken(completionHandler: @escaping (Result<String, CoronaApiError>) -> Void)
-    func getEndpointData(acessToken: String, endPoint: Endpoint, completionHandler: @escaping (Result<EndpointData, CoronaApiError>) -> Void)
+    func getAccessToken() -> AnyPublisher<String, CoronaApiError>
+    func getEndpointData(acessToken: String, endPoint: Endpoint) -> AnyPublisher<EndpointData, CoronaApiError>
 }
 
 protocol CoronaDataSource: ApiServiceDelegate, CoronaApiServiceDataSource {}
@@ -32,54 +33,35 @@ final class CoronaApiService: CoronaDataSource {
     
     private init() {}
     
-    func executeHTTPRequest<T>(withResource resource: Resource<T>, completionHandler: @escaping (Result<T, CoronaApiError>) -> Void) {
+    func executeHTTPRequest<T>(withResource resource: Resource<T>) -> AnyPublisher<T, Error> {
         guard let url = URL(string: resource.url) else {
-            completionHandler(.failure(.invalidUrl))
-            return
+            fatalError(CoronaApiError.invalidUrl.errorDescription ?? "")
         }
         
-        urlSession.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completionHandler(.failure(.error(error as NSError)))
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 else {
-                completionHandler(.failure(.badHttpResponse))
-                return
-            }
-            
-            guard let data = data else {
-                completionHandler(.failure(.noData))
-                return
-            }
-            
-            do {
-                let baseModel = try self.jsonDecoder.decode(T.self, from: data)
-                completionHandler(.success(baseModel))
-            } catch let error as NSError {
-                print(error.localizedDescription)
-                completionHandler(.failure(.invalidSerialization))
-            }
-        }.resume()
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .receive(on: RunLoop.main)
+            .map(\.data)
+            .decode(type: T.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
     }
     
-    func getAccessToken(completionHandler: @escaping (Result<String, CoronaApiError>) -> Void) {
+    func getAccessToken() -> AnyPublisher<String, Error> {
         var resource = try! Resource<AccessTokenModel>(url: "https://apigw.nubentos.com:443/token?grant_ype=client_credentials")!
         resource.httpMethod = "POST"
-        executeHTTPRequest(withResource: resource) { (result) in
-            switch result {
-            case .success(let accessModel):
-                completionHandler(.success(accessModel.accessToken))
-            case .failure(let error):
-                print(error.localizedDescription)
-                completionHandler(.failure(.accessTokenExpires))
-            }
-        }
+        
+        return executeHTTPRequest(withResource: resource)
+            .receive(on: RunLoop.main)
+            .map(\.accessToken)
+            .eraseToAnyPublisher()
     }
     
-    func getEndpointData(acessToken: String, endPoint: Endpoint, completionHandler: @escaping (Result<EndpointData, CoronaApiError>) -> Void) {
+    func getEndpointData(acessToken: String, endPoint: Endpoint) -> AnyPublisher<EndpointData, Error> {
         let resource = try! Resource<[BaseModel]>(url: baseUrl + endPoint.rawValue)!
+        
+        return executeHTTPRequest(withResource: resource)
+            .map( { $0 })
+            
+        
         executeHTTPRequest(withResource: resource) { (result) in
             switch result {
             case .success(let datas):

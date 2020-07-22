@@ -9,7 +9,6 @@
 import Foundation
 
 protocol CoronaRemoteDataRepositoryDataSource{
-    var getAllEndpointsCachedData: EndpointsData { get }
     func getEndpointsData(endpoint: Endpoint, completionHandler: @escaping (Result<EndpointData, CoronaApiError>) -> Void)
     func getDataRefreshToken(onGetData: () -> Void) -> Void
     func getAllEndpointsData(completionHandler: @escaping (Result<EndpointsData, CoronaApiError>) -> Void)
@@ -17,14 +16,9 @@ protocol CoronaRemoteDataRepositoryDataSource{
 }
 
 class CoronaRemoteDataRepository: CoronaRemoteDataRepositoryDataSource {
-    let coronaLocalDataRepository = CoronaLocalDataRepository()
     let coronaApiService = CoronaApiService.shared
     
     private var accessToken: String?
-    
-    var getAllEndpointsCachedData: EndpointsData {
-        return coronaLocalDataRepository.getData()
-    }
     
     func getEndpointsData(endpoint: Endpoint, completionHandler: @escaping (Result<EndpointData, CoronaApiError>) -> Void) {
         self.getDataRefreshToken {
@@ -45,7 +39,7 @@ class CoronaRemoteDataRepository: CoronaRemoteDataRepositoryDataSource {
             getAllEndpointsValues { (result) in
                 switch result {
                 case .success(let endpointsData):
-                    self.coronaLocalDataRepository.setData(endpointsData: endpointsData)
+                    
                     completionHandler(.success(endpointsData))
                 case .failure(let error):
                     print(error.localizedDescription)
